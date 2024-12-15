@@ -154,10 +154,18 @@ return {
     local servers = {
       -- clangd = {},
       -- gopls = {},
-	  -- TODO: setup deno
-	  -- ts_ls = {},
+      denols = {
+        settings = {
+          deno = {
+            enable = true,
+            lint = true,
+            format = true,
+            unstable = false,
+          },
+        },
+      },
       rust_analyzer = {},
-	  omnisharp = {},
+      omnisharp = {},
       ruff = {},
       pylsp = {
         settings = {
