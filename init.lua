@@ -1,6 +1,13 @@
 -- change data directory to D drive, I got no space in C lmao
 vim.env.XDG_DATA_HOME = 'D:/'
 
+-- Automatically change the working directory to the file's location
+vim.api.nvim_create_autocmd('BufEnter', {
+  callback = function()
+    vim.cmd('cd ' .. vim.fn.expand '%:p:h')
+  end,
+})
+
 -- import neovide-specific settings
 require 'shell.neovide'
 
@@ -10,13 +17,6 @@ require 'shell.powershell'
 -- import core config files from /lua/core/
 require 'core.options'
 require 'core.keymaps'
-
--- Automatically change the working directory to the file's location
-vim.api.nvim_create_autocmd('BufEnter', {
-  callback = function()
-    vim.cmd('cd ' .. vim.fn.expand '%:p:h')
-  end,
-})
 
 -- [[ Install `lazy.nvim` plugin manager ]]
 --    See `:help lazy.nvim.txt` or https://github.com/folke/lazy.nvim for more info
