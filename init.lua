@@ -11,6 +11,13 @@ require 'shell.powershell'
 require 'core.options'
 require 'core.keymaps'
 
+-- Automatically change the working directory to the file's location
+vim.api.nvim_create_autocmd('BufEnter', {
+  callback = function()
+    vim.cmd('cd ' .. vim.fn.expand '%:p:h')
+  end,
+})
+
 -- [[ Install `lazy.nvim` plugin manager ]]
 --    See `:help lazy.nvim.txt` or https://github.com/folke/lazy.nvim for more info
 local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
@@ -47,7 +54,7 @@ require('lazy').setup {
     require 'plugins.none-ls',
     require 'plugins.gitsigns',
     require 'plugins.alpha',
-	require 'plugins.indent-blankline',
-	require 'plugins.misc'
+    require 'plugins.indent-blankline',
+    require 'plugins.misc',
   },
 }
