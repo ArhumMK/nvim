@@ -154,6 +154,7 @@ return {
     local servers = {
       -- clangd = {},
       -- gopls = {},
+      jdtls = {},
       denols = {
         settings = {
           deno = {

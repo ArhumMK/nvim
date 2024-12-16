@@ -8,6 +8,11 @@ vim.api.nvim_create_autocmd('BufEnter', {
   end,
 })
 
+-- Disable languages I don't use
+vim.g.loaded_perl_provider = 0
+vim.g.loaded_ruby_provider = 0
+vim.g.loaded_node_provider = 0
+
 -- import neovide-specific settings
 require 'shell.neovide'
 
