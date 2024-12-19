@@ -2,19 +2,12 @@
 vim.env.XDG_DATA_HOME = 'D:/'
 
 -- Automatically change the working directory to the file's location
-vim.api.nvim_create_autocmd('BufEnter', {
-  callback = function()
-    vim.cmd('cd ' .. vim.fn.expand '%:p:h')
-  end,
-})
+vim.o.autochdir = true
 
 -- Disable languages I don't use
 vim.g.loaded_perl_provider = 0
 vim.g.loaded_ruby_provider = 0
 vim.g.loaded_node_provider = 0
-
--- import neovide-specific settings
-require 'shell.neovide'
 
 -- use powershell instead of cmd
 require 'shell.powershell'
